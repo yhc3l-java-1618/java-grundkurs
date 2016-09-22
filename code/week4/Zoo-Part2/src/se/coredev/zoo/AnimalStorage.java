@@ -26,8 +26,8 @@ public final class AnimalStorage {
 			System.out.println(animal + " already in storage");
 		}
 		else {
-			if (needToExpandStorage()) {
-				animals = getExpandeStorage();
+			if (storageIsFull()) {
+				expandeStorage();
 			}
 			animals[nextFreeIndex++] = animal;
 		}
@@ -37,11 +37,11 @@ public final class AnimalStorage {
 		return Arrays.copyOf(animals, animals.length);
 	}
 
-	private Animal[] getExpandeStorage() {
-		return Arrays.copyOf(animals, animals.length + INCREASE_FACTOR);
+	private void expandeStorage() {
+		animals = Arrays.copyOf(animals, animals.length + INCREASE_FACTOR);
 	}
 
-	private boolean needToExpandStorage() {
+	private boolean storageIsFull() {
 		return nextFreeIndex >= animals.length;
 	}
 
