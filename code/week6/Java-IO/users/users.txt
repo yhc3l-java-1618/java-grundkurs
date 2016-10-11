@@ -1,0 +1,3 @@
+1002;yoda;super-admin
+1003;leia;guest
+1004;luke;guest
